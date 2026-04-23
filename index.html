@@ -3,328 +3,198 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EVERLY | תכשיטי יוקרה</title>
-    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+    <title>EVERLY | Luxury Jewelry</title>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;600&family=Playfair+Display:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --gold: #d4af37;
-            --dark-bg: #0d0d0d;
-            --card-bg: #1a1a1a;
-            --text-primary: #ffffff;
-            --text-secondary: #b0b0b0;
-            --border-color: #333333;
-            --success: #4caf50;
-            --error: #f44336;
+            --soft-gold: #f1e5ac;
+            --black: #050505;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(212, 175, 55, 0.2);
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
             font-family: 'Assistant', sans-serif;
-            background-color: var(--dark-bg);
-            color: var(--text-primary);
-            line-height: 1.6;
+            background-color: var(--black);
+            color: var(--white);
+            background-image: radial-gradient(circle at top right, #1a1a1a 0%, #050505 100%);
+            min-height: 100vh;
             overflow-x: hidden;
         }
-        /* Header */
+
         header {
-            padding: 50px 20px;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
-            border-bottom: 1px solid var(--border-color);
-            animation: slideDown 0.6s ease;
-        }
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .logo {
-            font-size: 48px;
-            font-weight: 200;
-            letter-spacing: 8px;
-            color: var(--gold);
-            text-transform: uppercase;
-            margin-bottom: 10px;
-            text-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
-        }
-        .tagline {
-            font-size: 14px;
-            letter-spacing: 3px;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            font-weight: 300;
-        }
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
-        .section-title {
-            font-size: 32px;
-            font-weight: 300;
-            color: var(--text-primary);
-            text-align: center;
-            margin-bottom: 50px;
-            letter-spacing: 2px;
-        }
-        /* Gallery */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 35px;
-            margin-bottom: 50px;
-        }
-        /* Product Card */
-        .product-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&q=80') center/cover;
             position: relative;
         }
-        .product-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--gold);
-            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.15);
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(transparent, var(--black));
         }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(60px, 15vw, 120px);
+            font-weight: 200;
+            letter-spacing: 20px;
+            color: var(--gold);
+            text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+            margin-right: 20px; /* תיקון בגלל ה-letter spacing */
+        }
+
+        .tagline {
+            font-size: 18px;
+            letter-spacing: 5px;
+            color: var(--soft-gold);
+            text-transform: uppercase;
+            opacity: 0.8;
+            margin-top: -20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: -100px auto 0;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .product-card {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 2px;
+            padding: 15px;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--gold);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
         .product-image {
             width: 100%;
-            height: 320px;
-            background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
+            height: 450px;
+            background: #111;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 16px;
-            color: var(--text-secondary);
-            position: relative;
             overflow: hidden;
+            position: relative;
         }
-        .product-image::after {
-            content: '';
+
+        .product-image::before {
+            content: 'COLLECTION 2026';
+            font-size: 10px;
+            letter-spacing: 3px;
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, transparent 0%, rgba(212, 175, 55, 0.05) 100%);
+            top: 20px;
+            left: 20px;
+            color: var(--gold);
         }
+
         .product-info {
-            padding: 30px 25px;
+            padding: 30px 10px;
+            text-align: center;
         }
+
         .product-name {
-            font-size: 22px;
-            font-weight: 600;
-            color: var(--gold);
-            margin-bottom: 12px;
-            letter-spacing: 1px;
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: var(--white);
+            margin-bottom: 15px;
         }
-        .product-description {
-            font-size: 14px;
-            color: var(--text-secondary);
-            margin-bottom: 20px;
-            line-height: 1.8;
-        }
+
         .product-price {
-            font-size: 26px;
-            font-weight: 700;
+            font-size: 22px;
             color: var(--gold);
+            font-weight: 300;
             margin-bottom: 25px;
         }
-        /* Button */
+
         .btn {
-            width: 100%;
-            padding: 14px 24px;
             background: none;
-            border: 2px solid var(--gold);
+            border: 1px solid var(--gold);
             color: var(--gold);
+            padding: 18px 40px;
             font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 2px;
+            letter-spacing: 4px;
             text-transform: uppercase;
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Assistant', sans-serif;
-            border-radius: 2px;
+            transition: all 0.4s;
+            width: 100%;
         }
+
         .btn:hover {
-            background-color: var(--gold);
-            color: var(--dark-bg);
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
-            transform: scale(1.02);
+            background: var(--gold);
+            color: var(--black);
         }
-        .btn:active {
-            transform: scale(0.98);
-        }
-        .btn-secondary {
-            background: none;
-            border: 1px solid var(--text-secondary);
-            color: var(--text-secondary);
-            margin-top: 12px;
-        }
-        .btn-secondary:hover {
-            background: none;
-            border-color: var(--gold);
-            color: var(--gold);
-        }
-        /* Modal */
+
+        /* מודל בעיצוב נקי */
         .modal {
             display: none;
             position: fixed;
             z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.98);
-            backdrop-filter: blur(5px);
-            animation: fadeIn 0.3s ease;
-            overflow-y: auto;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.98);
+            backdrop-filter: blur(20px);
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+
         .modal-content {
-            background: var(--card-bg);
-            margin: 10% auto;
-            padding: 45px;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            width: 90%;
-            max-width: 420px;
-            text-align: right;
-            animation: slideUp 0.3s ease;
+            max-width: 500px;
+            margin: 5vh auto;
+            padding: 60px 40px;
+            border-left: 1px solid var(--gold);
         }
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .modal-header {
-            font-size: 28px;
-            font-weight: 600;
-            color: var(--gold);
-            margin-bottom: 30px;
-            letter-spacing: 1px;
-        }
-        .form-group {
-            margin-bottom: 22px;
-        }
-        .form-label {
-            display: block;
-            font-size: 12px;
-            color: var(--text-secondary);
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        input,
-        textarea {
+
+        input, textarea {
             width: 100%;
-            padding: 14px 16px;
-            background-color: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--border-color);
-            color: var(--text-primary);
-            font-family: 'Assistant', sans-serif;
-            font-size: 14px;
-            border-radius: 2px;
-            transition: all 0.3s ease;
-        }
-        input::placeholder,
-        textarea::placeholder {
-            color: var(--text-secondary);
-        }
-        input:focus,
-        textarea:focus {
-            outline: none;
-            border-color: var(--gold);
-            background-color: rgba(212, 175, 55, 0.05);
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
-        }
-        textarea {
-            resize: vertical;
-            min-height: 110px;
-            font-size: 13px;
-        }
-        .modal-buttons {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 12px;
-            margin-top: 30px;
-        }
-        .close-modal {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            font-size: 28px;
-            color: var(--text-secondary);
-            cursor: pointer;
-            transition: all 0.3s ease;
             background: none;
             border: none;
-            font-weight: 300;
+            border-bottom: 1px solid #333;
+            padding: 20px 0;
+            color: white;
+            margin-bottom: 30px;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.4s;
         }
-        .close-modal:hover {
-            color: var(--gold);
-            transform: rotate(90deg);
-        }
-        /* Error Message */
-        .error-message {
-            color: var(--error);
-            font-size: 12px;
-            margin-top: 6px;
-            display: none;
-        }
-        .error-message.show {
-            display: block;
-        }
-        /* Success Message */
-        .success-message {
-            background: rgba(76, 175, 80, 0.1);
-            border: 1px solid var(--success);
-            color: var(--success);
-            padding: 12px;
-            border-radius: 2px;
-            text-align: center;
-            margin-bottom: 20px;
-            display: none;
-            font-size: 13px;
-        }
-        .success-message.show {
-            display: block;
-        }
-        /* Footer */
+
+        input:focus { border-color: var(--gold); }
+
         footer {
+            padding: 100px 20px;
             text-align: center;
-            padding: 40px 20px;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-secondary);
-            font-size: 12px;
-            letter-spacing: 1px;
-            margin-top: 60px;
+            opacity: 0.5;
+            letter-spacing: 2px;
+            font-size: 11px;
         }
-        /* Loading Spinner */
-        .spinner {
-            display: inline-block;
-            width: 14px;
-            height: 14px;
-            border: 2px solid var(--gold);
-            border-top: 2px solid transparent;
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-            margin-right: 8px;
-        }
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        /* Responsive */
+
         @media (max-width: 768px) {
-            .logo { font-size: 36px; letter-spacing: 6px; }
-            .section-title { font-size: 24px; }
-            .gallery { grid-template-columns: 1fr; gap: 25px; }
-            .modal-content { width: 95%; margin: 20% auto; padding: 35px 25px; }
-            header { padding: 40px 20px; }
-            .container { padding: 40px 20px; }
-            .close-modal { top: 15px; left: 15px; font-size: 24px; }
+            .logo { font-size: 50px; letter-spacing: 10px; }
+            .container { margin-top: -50px; }
         }
     </style>
 </head>
@@ -332,168 +202,80 @@
 
 <header>
     <div class="logo">EVERLY</div>
-    <div class="tagline">שומרים על הקשר. לתמיד.</div>
+    <div class="tagline">The Art of Connection</div>
 </header>
 
 <div class="container">
     <div class="gallery">
         <div class="product-card">
-            <div class="product-image">צמיד לוחם טקטי</div>
+            <div class="product-image">ARMY EDITION</div>
             <div class="product-info">
                 <div class="product-name">צמיד לוחם טקטי</div>
-                <div class="product-description">עשוי פלדת אל-חלד עמידה. מתנה עוצמתית ששומרת על הזיכרון בכל תנאי שטח.</div>
                 <div class="product-price">₪179</div>
-                <button class="btn" onclick="openModal('צמיד לוחם טקטי', '₪179')">הזמנה אישית</button>
+                <button class="btn" onclick="openModal('צמיד לוחם טקטי')">התאמה אישית</button>
             </div>
         </div>
 
         <div class="product-card">
-            <div class="product-image">שרשרת הקרנה יוקרתית</div>
+            <div class="product-image">LEGACY PIECE</div>
             <div class="product-info">
-                <div class="product-name">שרשרת הקרנה יוקרתית</div>
-                <div class="product-description">התמונה שלכם תמיד איתם. ציפוי זהב איכותי עם עדשת מיקרו להקרנת תמונה אישית.</div>
+                <div class="product-name">שרשרת הקרנה יוקרטית</div>
                 <div class="product-price">₪189</div>
-                <button class="btn" onclick="openModal('שרשרת הקרנה', '₪189')">הזמנה אישית</button>
+                <button class="btn" onclick="openModal('שרשרת הקרנה')">התאמה אישית</button>
             </div>
         </div>
 
         <div class="product-card">
-            <div class="product-image">תליון חריטה אישי</div>
+            <div class="product-image">SIGNATURE</div>
             <div class="product-info">
                 <div class="product-name">תליון חריטה אישי</div>
-                <div class="product-description">הקדשה אישית, שם או תאריך חשוב. תכשיט שמרגיש כמו חלק ממך.</div>
                 <div class="product-price">₪169</div>
-                <button class="btn" onclick="openModal('תליון חריטה', '₪169')">הזמנה אישית</button>
+                <button class="btn" onclick="openModal('תליון חריטה')">התאמה אישית</button>
             </div>
         </div>
     </div>
 </div>
 
 <div id="orderModal" class="modal">
-    <button class="close-modal" onclick="closeModal()">✕</button>
     <div class="modal-content">
-        <div class="modal-header" id="modalTitle">פרטי הזמנה</div>
-        
-        <div class="success-message" id="successMessage">
-            ✓ הזמנתך התקבלה בהצלחה! אנחנו כבר בדרך אליך.
-        </div>
-        
-        <form id="orderForm">
-            <div class="form-group">
-                <label class="form-label">שם מלא</label>
-                <input type="text" id="customerName" placeholder="הכנס את שמך" required>
-                <div class="error-message" id="nameError">שם הוא שדה חובה</div>
-            </div>
-            
-            <div class="form-group">
-                <label class="form-label">מספר טלפון</label>
-                <input type="tel" id="customerPhone" placeholder="05X-XXXXXXX" required>
-                <div class="error-message" id="phoneError">מספר טלפון תקין הוא חובה</div>
-            </div>
-            
-            <div class="form-group">
-                <label class="form-label">פרטי ההזמנה</label>
-                <textarea id="customerMessage" placeholder="אולם חודשה, צבעים מיוחדים, או כל פרט אחר..."></textarea>
-            </div>
-            
-            <div class="modal-buttons">
-                <button type="button" class="btn" onclick="sendWhatsApp()">
-                    <span class="spinner" id="spinner" style="display: none;"></span>
-                    שליחת הזמנה ל-WhatsApp
-                </button>
-                <button type="button" class="btn btn-secondary" onclick="closeModal()">ביטול</button>
-            </div>
-        </form>
+        <h2 style="font-family:'Playfair Display'; color:var(--gold); margin-bottom:40px; font-size:35px;">הזמנה אישית</h2>
+        <input type="text" id="customerName" placeholder="שם מלא">
+        <input type="tel" id="customerPhone" placeholder="טלפון ליצירת קשר">
+        <textarea id="customerMessage" placeholder="פרטי החריטה או הבקשה שלך..."></textarea>
+        <button class="btn" onclick="sendWhatsApp()">שלח בקשה ל-WhatsApp</button>
+        <p onclick="closeModal()" style="color:#555; cursor:pointer; margin-top:30px; text-align:center; font-size:12px; letter-spacing:2px;">חזור</p>
     </div>
 </div>
 
 <footer>
-    <p>© 2026 EVERLY LUXURY | הקשר שלכם הוא השליחות שלנו</p>
+    <p>EVERLY LUXURY JEWELRY &copy; 2026</p>
 </footer>
 
 <script>
-    let currentProduct = '';
-    let currentPrice = '';
+    const businessPhone = '972548094964';
+    let selectedProduct = '';
 
-    function openModal(productName, productPrice) {
-        currentProduct = productName;
-        currentPrice = productPrice;
-        document.getElementById('modalTitle').innerText = 'הזמנת ' + productName;
+    function openModal(name) {
+        selectedProduct = name;
         document.getElementById('orderModal').style.display = 'block';
-        document.getElementById('orderForm').reset();
-        document.getElementById('successMessage').classList.remove('show');
-        clearErrors();
     }
 
     function closeModal() {
         document.getElementById('orderModal').style.display = 'none';
     }
 
-    function clearErrors() {
-        document.querySelectorAll('.error-message').forEach(el => {
-            el.classList.remove('show');
-        });
-    }
-
-    function validateForm() {
-        clearErrors();
-        let isValid = true;
-
-        const name = document.getElementById('customerName').value.trim();
-        if (!name) {
-            document.getElementById('nameError').classList.add('show');
-            isValid = false;
-        }
-
-        const phone = document.getElementById('customerPhone').value.trim();
-        const phoneRegex = /^(\ |0)?[5-9]\d{8}$/;
-        if (!phone || !phoneRegex.test(phone)) {
-            document.getElementById('phoneError').classList.add('show');
-            isValid = false;
-        }
-
-        return isValid;
-    }
-
     function sendWhatsApp() {
-        if (!validateForm()) {
-            return;
-        }
-
-        const name = document.getElementById('customerName').value.trim();
-        const phone = document.getElementById('customerPhone').value.trim();
-        const message = document.getElementById('customerMessage').value.trim();
-
-        const businessPhone = '972548094964';
-        const whatsappText = `🎁 הזמנה חדשה מ-EVERLY%0A%0A📦 המוצר: ${currentProduct} (${currentPrice})%0A👤 שם: ${name}%0A📱 טלפון: ${phone}%0A💬 פרטים נוספים: ${message || 'ללא'}`;
-
-        // Show success message
-        document.getElementById('successMessage').classList.add('show');
+        const name = document.getElementById('customerName').value;
+        const phone = document.getElementById('customerPhone').value;
+        const msg = document.getElementById('customerMessage').value;
         
-        // Open WhatsApp
-        setTimeout(() => {
-            window.open(`https://wa.me/${businessPhone}?text=${encodeURIComponent(whatsappText)}`, '_blank');
-            closeModal();
-        }, 500);
-    }
+        if(!name || !phone) return alert('אנא מלא פרטי קשר');
 
-    // Close modal when clicking outside
-    window.onclick = function(event) {
-        const modal = document.getElementById('orderModal');
-        if (event.target === modal) {
-            closeModal();
-        }
+        const text = `שלום EVERLY, אני מעוניין בהתאמה אישית ל${selectedProduct}:%0Aשם: ${name}%0Aטלפון: ${phone}%0Aבקשה: ${msg}`;
+        window.open(`https://wa.me/${businessPhone}?text=${text}`, '_blank');
     }
-
-    // Allow Enter key to submit
-    document.addEventListener('keypress', function(event) {
-        const modal = document.getElementById('orderModal');
-        if (modal.style.display === 'block' && event.key === 'Enter') {
-            event.preventDefault();
-            sendWhatsApp();
-        }
-    });
 </script>
 
 </body>
 </html>
+
