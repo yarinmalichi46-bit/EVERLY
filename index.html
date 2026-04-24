@@ -3,260 +3,284 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EVERLY | Luxury Jewelry</title>
-    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;600&family=Playfair+Display:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
+    <title>EVERLY | Official Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;700&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --gold: #d4af37;
-            --soft-gold: #f1e5ac;
-            --black: #050505;
-            --glass: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(212, 175, 55, 0.2);
+            --gold: #c5a059;
+            --black: #000000;
+            --gray: #0a0a0a;
+            --light-gray: #1a1a1a;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
         body {
-            font-family: 'Assistant', sans-serif;
             background-color: var(--black);
-            color: var(--white);
-            background-image: radial-gradient(circle at top right, #1a1a1a 0%, #050505 100%);
-            min-height: 100vh;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
             overflow-x: hidden;
         }
 
+        /* Hero Section - High End Magazine Look */
         header {
-            height: 80vh;
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&q=80') center/cover;
-            position: relative;
+            padding: 40px;
+            border-bottom: 1px solid #111;
         }
 
-        header::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            height: 150px;
-            background: linear-gradient(transparent, var(--black));
+        .logo-wrap {
+            position: relative;
         }
 
         .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(60px, 15vw, 120px);
-            font-weight: 200;
-            letter-spacing: 20px;
+            font-size: clamp(45px, 15vw, 80px);
+            font-weight: 100;
+            letter-spacing: 12px;
+            color: #fff;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .logo span {
             color: var(--gold);
-            text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
-            margin-right: 20px; /* תיקון בגלל ה-letter spacing */
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 600;
+            letter-spacing: 2px;
         }
 
         .tagline {
-            font-size: 18px;
-            letter-spacing: 5px;
-            color: var(--soft-gold);
+            font-size: 10px;
             text-transform: uppercase;
-            opacity: 0.8;
-            margin-top: -20px;
+            letter-spacing: 5px;
+            color: #444;
+            margin-top: 10px;
         }
 
-        .container {
-            max-width: 1400px;
-            margin: -100px auto 0;
-            padding: 40px 20px;
-            position: relative;
-            z-index: 10;
-        }
-
-        .gallery {
+        /* Product Section - Full Height Stack */
+        .product-section {
+            padding: 20px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
+            gap: 100px;
+            margin-top: 50px;
         }
 
         .product-card {
-            background: var(--glass);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            border-radius: 2px;
-            padding: 15px;
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
-        .product-card:hover {
-            transform: translateY(-15px);
-            border-color: var(--gold);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        .image-container {
+            width: 100%;
+            height: 70vh;
+            background: var(--gray);
+            overflow: hidden;
+            position: relative;
+            border: 1px solid #111;
         }
+
+        /* תמונות דמו איכותיות מאוד */
+        #img1 { background: url('https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=1000&auto=format&fit=crop') center/cover; }
+        #img2 { background: url('https://images.unsplash.com/photo-1599643477877-537ef5278533?q=80&w=1000&auto=format&fit=crop') center/cover; }
+        #img3 { background: url('https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=1000&auto=format&fit=crop') center/cover; }
 
         .product-image {
             width: 100%;
-            height: 450px;
-            background: #111;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            position: relative;
+            height: 100%;
+            transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1);
         }
 
-        .product-image::before {
-            content: 'COLLECTION 2026';
-            font-size: 10px;
-            letter-spacing: 3px;
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+
+        .content-box {
             position: absolute;
-            top: 20px;
+            bottom: -30px;
             left: 20px;
-            color: var(--gold);
+            background: var(--black);
+            padding: 30px;
+            border-left: 3px solid var(--gold);
+            width: calc(100% - 40px);
+            z-index: 2;
         }
 
-        .product-info {
-            padding: 30px 10px;
-            text-align: center;
+        .product-num {
+            font-size: 10px;
+            color: var(--gold);
+            margin-bottom: 5px;
+            display: block;
         }
 
         .product-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            color: var(--white);
-            margin-bottom: 15px;
-        }
-
-        .product-price {
-            font-size: 22px;
-            color: var(--gold);
+            font-size: 24px;
             font-weight: 300;
-            margin-bottom: 25px;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
         }
 
-        .btn {
-            background: none;
-            border: 1px solid var(--gold);
-            color: var(--gold);
-            padding: 18px 40px;
-            font-size: 12px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: all 0.4s;
-            width: 100%;
+        .price {
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
         }
 
-        .btn:hover {
+        .order-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
             background: var(--gold);
-            color: var(--black);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
         }
 
-        /* מודל בעיצוב נקי */
+        .order-btn svg { width: 20px; fill: #000; }
+
+        /* Modal - Minimalist Slide Up */
         .modal {
             display: none;
             position: fixed;
-            z-index: 2000;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.98);
-            backdrop-filter: blur(20px);
+            bottom: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
         }
 
-        .modal-content {
-            max-width: 500px;
-            margin: 5vh auto;
-            padding: 60px 40px;
-            border-left: 1px solid var(--gold);
+        .modal-inner {
+            position: absolute;
+            bottom: 0; width: 100%;
+            background: var(--light-gray);
+            padding: 40px;
+            border-radius: 30px 30px 0 0;
+            text-align: center;
         }
 
         input, textarea {
             width: 100%;
-            background: none;
-            border: none;
-            border-bottom: 1px solid #333;
-            padding: 20px 0;
-            color: white;
-            margin-bottom: 30px;
+            background: #000;
+            border: 1px solid #222;
+            padding: 20px;
+            color: #fff;
+            margin-bottom: 15px;
             font-family: inherit;
-            outline: none;
-            transition: border-color 0.4s;
+            border-radius: 10px;
         }
 
-        input:focus { border-color: var(--gold); }
+        .submit-btn {
+            background: var(--gold);
+            color: #000;
+            padding: 20px;
+            width: 100%;
+            border: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 10px;
+        }
 
         footer {
-            padding: 100px 20px;
+            padding: 100px 40px;
             text-align: center;
-            opacity: 0.5;
-            letter-spacing: 2px;
-            font-size: 11px;
+            font-size: 9px;
+            letter-spacing: 3px;
+            color: #333;
+            text-transform: uppercase;
         }
 
         @media (max-width: 768px) {
-            .logo { font-size: 50px; letter-spacing: 10px; }
-            .container { margin-top: -50px; }
+            header { padding: 20px; }
+            .image-container { height: 50vh; }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="logo">EVERLY</div>
-    <div class="tagline">The Art of Connection</div>
+    <div class="logo-wrap">
+        <h1 class="logo">EVE<span>RLY</span></h1>
+        <p class="tagline">Luxury Tactical Goods</p>
+    </div>
 </header>
 
-<div class="container">
-    <div class="gallery">
-        <div class="product-card">
-            <div class="product-image">ARMY EDITION</div>
-            <div class="product-info">
-                <div class="product-name">צמיד לוחם טקטי</div>
-                <div class="product-price">₪179</div>
-                <button class="btn" onclick="openModal('צמיד לוחם טקטי')">התאמה אישית</button>
-            </div>
+<div class="product-section">
+    <div class="product-card">
+        <div class="image-container">
+            <div class="product-image" id="img1"></div>
+            <button class="order-btn" onclick="openModal('צמיד לוחם טקטי')">
+                <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+            </button>
         </div>
-
-        <div class="product-card">
-            <div class="product-image">LEGACY PIECE</div>
-            <div class="product-info">
-                <div class="product-name">שרשרת הקרנה יוקרטית</div>
-                <div class="product-price">₪189</div>
-                <button class="btn" onclick="openModal('שרשרת הקרנה')">התאמה אישית</button>
-            </div>
+        <div class="content-box">
+            <span class="product-num">01 / EDITION</span>
+            <h2 class="product-name">צמיד לוחם טקטי</h2>
+            <p class="price">₪179</p>
         </div>
+    </div>
 
-        <div class="product-card">
-            <div class="product-image">SIGNATURE</div>
-            <div class="product-info">
-                <div class="product-name">תליון חריטה אישי</div>
-                <div class="product-price">₪169</div>
-                <button class="btn" onclick="openModal('תליון חריטה')">התאמה אישית</button>
-            </div>
+    <div class="product-card">
+        <div class="image-container">
+            <div class="product-image" id="img2"></div>
+            <button class="order-btn" onclick="openModal('שרשרת הקרנה')">
+                <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+            </button>
+        </div>
+        <div class="content-box">
+            <span class="product-num">02 / LEGACY</span>
+            <h2 class="product-name">שרשרת הקרנה יוקרטית</h2>
+            <p class="price">₪189</p>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <div class="image-container">
+            <div class="product-image" id="img3"></div>
+            <button class="order-btn" onclick="openModal('תליון חריטה')">
+                <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+            </button>
+        </div>
+        <div class="content-box">
+            <span class="product-num">03 / SIGNATURE</span>
+            <h2 class="product-name">תליון חריטה אישי</h2>
+            <p class="price">₪169</p>
         </div>
     </div>
 </div>
 
-<div id="orderModal" class="modal">
-    <div class="modal-content">
-        <h2 style="font-family:'Playfair Display'; color:var(--gold); margin-bottom:40px; font-size:35px;">הזמנה אישית</h2>
+<div id="orderModal" class="modal" onclick="if(event.target==this)closeModal()">
+    <div class="modal-inner">
+        <div style="width:40px; height:4px; background:#333; margin:0 auto 30px; border-radius:2px;"></div>
+        <h2 style="margin-bottom:30px; font-weight:300;">הזמנה אישית</h2>
         <input type="text" id="customerName" placeholder="שם מלא">
-        <input type="tel" id="customerPhone" placeholder="טלפון ליצירת קשר">
-        <textarea id="customerMessage" placeholder="פרטי החריטה או הבקשה שלך..."></textarea>
-        <button class="btn" onclick="sendWhatsApp()">שלח בקשה ל-WhatsApp</button>
-        <p onclick="closeModal()" style="color:#555; cursor:pointer; margin-top:30px; text-align:center; font-size:12px; letter-spacing:2px;">חזור</p>
+        <input type="tel" id="customerPhone" placeholder="טלפון">
+        <textarea id="customerMessage" placeholder="מה תרצה לחרוט?" rows="3"></textarea>
+        <button class="submit-btn" onclick="sendWhatsApp()">שליחה לוואטסאפ</button>
+        <p onclick="closeModal()" style="margin-top:20px; color:#555; font-size:12px;">סגור</p>
     </div>
 </div>
 
 <footer>
-    <p>EVERLY LUXURY JEWELRY &copy; 2026</p>
+    <p>EVERLY &copy; 2026 | MILITARY GRADE JEWELRY</p>
 </footer>
 
 <script>
     const businessPhone = '972548094964';
-    let selectedProduct = '';
+    let currentItem = '';
 
     function openModal(name) {
-        selectedProduct = name;
+        currentItem = name;
         document.getElementById('orderModal').style.display = 'block';
     }
 
@@ -268,14 +292,12 @@
         const name = document.getElementById('customerName').value;
         const phone = document.getElementById('customerPhone').value;
         const msg = document.getElementById('customerMessage').value;
+        if(!name || !phone) return alert('אנא מלא פרטים');
         
-        if(!name || !phone) return alert('אנא מלא פרטי קשר');
-
-        const text = `שלום EVERLY, אני מעוניין בהתאמה אישית ל${selectedProduct}:%0Aשם: ${name}%0Aטלפון: ${phone}%0Aבקשה: ${msg}`;
-        window.open(`https://wa.me/${businessPhone}?text=${text}`, '_blank');
+        const text = `שלום EVERLY, הזמנה חדשה:%0Aמוצר: ${currentItem}%0Aשם: ${name}%0Aטלפון: ${phone}%0Aחריטה: ${msg}`;
+        window.open(`https://wa.me/${businessPhone}?text=${text}`);
     }
 </script>
 
 </body>
 </html>
-
